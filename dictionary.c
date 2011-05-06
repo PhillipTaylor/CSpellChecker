@@ -179,4 +179,4 @@ int main(int argc, char **argv) {
  * store_word on each of them, and then, moving forward you could
  * load and save the dictionary by writing out and reading in the tiny 352
  * sized array. There it is. An O(1) efficiency, tiny spell checker.
-/
+*/
