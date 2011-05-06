@@ -1,0 +1,34 @@
+
+A basic complete example of a spell checker.
+
+first, I wrote a function "int get_key(string)" that turns a word into a numeric
+representation. So a=0, b=1, c=2 .... y=24, z=25, aa=26 etc.
+
+This is the key function in my hash table. Then I take any word, map it to it's number
+and I store a boolean 1 or 0 in the array at that word's location to mark it as valid
+or invalid.
+
+Since I only need a bit for every word, I use the mod and power functions to store 32
+flags in a single array element. That way I can store the whole dictionary in 352 elements.
+
+
+Here's an example:
+
+1. hello = 307
+2. 307 / 32 = 9.
+3. Get the unsigned 32 bit int at position 9 in the array.
+4. the uint32s value is = 00100010101010101010101010101010
+5. 307 % 32 = 19. Extract bit 19.
+6. if 1, word is valid. If 0, word is invalid.
+
+7. if storing a word, set that bit to 1.
+
+notes:
+	The longest word in the dictionary is antidisestablishmentarianism.
+	It's 28 chars, so when we get to char 29 of the current word, just automatically fail.
+	A limit of 29, regardless of the passed in word's length means the program is O(1).
+	The value of the longest word is 11281, so my array goes from 0 -> 11281.
+	If the array is 32 bit integers, we can divide 11281 / 32 and store every word in just 352 elements.
+
+Phillip Taylor.
+
